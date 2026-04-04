@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inventory_products', function (Blueprint $table) {
+        Schema::create('produk', function (Blueprint $table) {
             $table->id();
+            // Menghubungkan ke tabel 'kategori'
+            $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
+            
+            $table->string('sku')->unique();
+            $table->string('nama_produk');
+            $table->integer('stok')->default(0);
+            $table->integer('stok_minimum')->default(0);
+            $table->decimal('harga_beli', 15, 2);
+            $table->decimal('harga_jual', 15, 2);
             $table->timestamps();
         });
     }
@@ -22,6 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventory_products');
+        // PERBAIKAN: Nama tabel harus sama dengan yang ada di up()
+        Schema::dropIfExists('produk');
     }
 };

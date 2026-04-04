@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('MutasiStok', function (Blueprint $table) {
+       Schema::create('detail_penjualan', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('Produk_id')->constrained('produk')->onDelete('cascade');
-        $table->enum('tipe', ['masuk', 'keluar', 'penyesuaian']);
+        $table->foreignId('penjualan_id')->constrained('penjualan')->onDelete('cascade');
+        $table->foreignId('produk_id')->constrained('produk')->onDelete('cascade');
         $table->integer('jumlah');
-        $table->string('referensi')->nullable();
+        $table->decimal('harga_saat_jual', 15, 2);
+        $table->decimal('subtotal', 15, 2);
         $table->timestamps();
     });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inventory_stock_mutations');
+        Schema::dropIfExists('detail_penjualan');
     }
 };
