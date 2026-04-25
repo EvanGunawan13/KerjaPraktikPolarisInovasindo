@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Inventaris | Polaris Inovasindo</title>
+    <title>Polaris Inovasindo - Manajemen Stok</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-100 font-sans">
+<body class="bg-slate-100 flex h-screen overflow-hidden">
 
-    <div class="flex min-h-screen">
-        <aside class="w-64 bg-slate-900 text-white flex-shrink-0 shadow-xl">
-            <div class="p-6">
-                <h2 class="text-xl font-bold tracking-wider text-blue-400">POLARIS</h2>
-                <p class="text-xs text-slate-400 uppercase tracking-widest mt-1">Inovasindo Furniture</p>
-            </div>
+    <aside class="w-64 bg-slate-900 h-full flex flex-col transition-all duration-300">
+        <div class="p-6">
+            <h1 class="text-blue-400 text-xl font-bold uppercase tracking-wider">Polaris</h1>
+            <p class="text-slate-500 text-xs uppercase">Inovasindo Furniture</p>
+        </div>
 
-            <nav class="mt-4 px-4 space-y-2">
-                <a href="{{ route('dashboard') }}" class="flex items-center p-3 text-sm font-medium rounded-lg bg-blue-600 text-white transition-colors">
-                    <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
-                    Dashboard
-                </a>
+        <nav class="flex-1 px-4 space-y-2">
+            <a href="{{ route('dashboard') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+                <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
+                Dashboard
+            </a>
 
-                <div class="pt-4 pb-2">
-                    <p class="text-[10px] font-bold text-slate-500 uppercase px-3">Manajemen Utama</p>
-                </div>
+            <a href="{{ route('produk.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+                <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
+                Data Stok Barang
+            </a>
 
-                <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg transition-all group">
-                    <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
-                    Data Stok Barang
-                </a>
+            <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+                <i class="fa-solid fa-cart-shopping w-6 text-center mr-3 group-hover:text-green-400"></i>
+                Transaksi Jual
+            </a>
+        </nav>
+    </aside>
 
-                <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg transition-all group">
-                    <i class="fa-solid fa-cart-shopping w-6 text-center mr-3 group-hover:text-green-400"></i>
-                    Transaksi Jual
-                </a>
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="bg-white shadow-sm p-4 border-b">
+            <span class="text-slate-600 font-medium">Sistem Inventaris v1.0</span>
+        </header>
 
-                <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg transition-all group">
-                    <i class="fa-solid fa-file-invoice-dollar w-6 text-center mr-3 group-hover:text-yellow-
+        <main class="flex-1 overflow-y-auto bg-slate-50">
+            @yield('content')
+        </main>
+    </div>
+
+</body>
+</html>

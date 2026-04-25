@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    public function Produk()
-{
-    return $this->hasMany(Produk::class);
-}
+    protected $table = 'kategori'; // Paksa ke nama tabel bahasa Indonesia
+    protected $fillable = ['nama_kategori', 'slug'];
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'kategori_id');
+    }
 }

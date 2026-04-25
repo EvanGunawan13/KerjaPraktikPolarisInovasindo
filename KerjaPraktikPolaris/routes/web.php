@@ -2,11 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::prefix('master')->group(function () {
-});
+Route::resource('produk', ProdukController::class);
 
-Route::prefix('transaksi')->group(function () {
-});
+Route::get('/transaksi', function() { return 'Halaman Transaksi Segera Hadir'; })->name('penjualan.index');
