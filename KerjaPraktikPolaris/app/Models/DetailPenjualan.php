@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailPenjualan extends Model
 {
-    protected $fillable = ['sale_id', 'product_id', 'jumlah', 'harga_saat_jual', 'subtotal'];
+    protected $fillable = ['penjualan_id', 'produk_id', 'jumlah', 'harga_saat_jual', 'subtotal'];
 
-public function product()
+public function Produk()
 {
-    return $this->belongsTo(Product::class);
+    return $this->belongsTo(Produk::class);
 }
 }
