@@ -16,21 +16,26 @@
         </div>
 
         <nav class="flex-1 px-4 space-y-2">
-            <a href="{{ route('dashboard') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-                <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
-                Dashboard
-            </a>
+    <a href="{{ route('dashboard') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+        <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
+        Dashboard
+    </a>
 
-            <a href="{{ route('produk.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-                <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
-                Data Stok Barang
-            </a>
+    <a href="{{ route('produk.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+        <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
+        Data Stok Barang
+    </a>
 
-            <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-                <i class="fa-solid fa-cart-shopping w-6 text-center mr-3 group-hover:text-green-400"></i>
-                Transaksi Jual
-            </a>
-        </nav>
+    <a href="{{ route('transaksi.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group {{ Request::is('transaksi*') ? 'bg-slate-800 text-white' : '' }}">
+        <i class="fa-solid fa-calculator w-6 text-center mr-3 group-hover:text-green-400"></i>
+        Laporan Transaksi
+    </a>
+
+    <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
+        <i class="fa-solid fa-users w-6 text-center mr-3"></i>
+        Manajemen User
+    </a>
+</nav>
     </aside>
 
     <div class="flex-1 flex flex-col overflow-hidden">

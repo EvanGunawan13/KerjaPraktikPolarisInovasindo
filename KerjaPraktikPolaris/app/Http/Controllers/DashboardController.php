@@ -12,12 +12,12 @@ class DashboardController extends Controller
 {
     $total_produk = \App\Models\Produk::count();
     $stok_menipis = \App\Models\Produk::whereColumn('stok', '<=', 'stok_minimum')->count();
+    $total_pendapatan = \App\Models\Transaksi::sum('total_harga');
     
-    // Gunakan try-catch atau pastikan model Penjualan sudah di-set tabelnya
     try {
         $total_pendapatan = \App\Models\Penjualan::sum('total_harga') ?? 0;
     } catch (\Exception $e) {
-        $total_pendapatan = 0; // Jika tabel belum ada, set 0 agar tidak crash
+        $total_pendapatan = 0;
     }
 
     $produk_terbaru = \App\Models\Produk::with('kategori')->latest()->take(5)->get();
