@@ -85,16 +85,22 @@
         <h3 class="text-lg font-bold mb-4">Edit Produk</h3>
         <form id="formEdit" method="POST" class="space-y-4">
             @csrf @method('PUT')
-            <input type="text" name="nama_produk" id="edit_nama" class="w-full border rounded p-2" required>
-            <input type="text" name="sku" id="edit_sku" class="w-full border rounded p-2" required>
+            <input type="text" name="nama_produk" id="edit_nama" class="w-full border rounded p-2" placeholder="Nama Produk" required>
+            <input type="text" name="sku" id="edit_sku" class="w-full border rounded p-2" placeholder="SKU" required>
             <select name="kategori_id" id="edit_kategori" class="w-full border rounded p-2" required>
                 @foreach($kategori as $kat)
                     <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
                 @endforeach
             </select>
             <div class="grid grid-cols-2 gap-4">
-                <input type="number" name="stok" id="edit_stok" class="border rounded p-2" required>
-                <input type="number" name="harga_jual" id="edit_harga" class="border rounded p-2" required>
+                <input type="number" name="stok" id="edit_stok" class="border rounded p-2" placeholder="Stok" required>
+                {{-- ✅ TAMBAH INI --}}
+                <input type="number" name="stok_minimum" id="edit_stok_minimum" class="border rounded p-2" placeholder="Stok Min" required>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                {{-- ✅ TAMBAH INI --}}
+                <input type="number" name="harga_beli" id="edit_harga_beli" class="border rounded p-2" placeholder="Harga Beli" required>
+                <input type="number" name="harga_jual" id="edit_harga_jual" class="border rounded p-2" placeholder="Harga Jual" required>
             </div>
             <div class="flex gap-2">
                 <button type="button" onclick="document.getElementById('modalEdit').classList.add('hidden')" class="flex-1 border py-2 rounded">Batal</button>
@@ -105,14 +111,16 @@
 </div>
 
 <script>
-    function openEditModal(produk) {
-        document.getElementById('formEdit').action = '/produk/' + produk.id;
-        document.getElementById('edit_nama').value = produk.nama_produk;
-        document.getElementById('edit_sku').value = produk.sku;
-        document.getElementById('edit_kategori').value = produk.kategori_id;
-        document.getElementById('edit_stok').value = produk.stok;
-        document.getElementById('edit_harga').value = produk.harga_jual;
-        document.getElementById('modalEdit').classList.remove('hidden');
-    }
+function openEditModal(produk) {
+    document.getElementById('formEdit').action = '/produk/' + produk.id;
+    document.getElementById('edit_nama').value = produk.nama_produk;
+    document.getElementById('edit_sku').value = produk.sku;
+    document.getElementById('edit_kategori').value = produk.kategori_id;
+    document.getElementById('edit_stok').value = produk.stok;
+    document.getElementById('edit_stok_minimum').value = produk.stok_minimum; // ✅ TAMBAH
+    document.getElementById('edit_harga_beli').value = produk.harga_beli;     // ✅ TAMBAH
+    document.getElementById('edit_harga_jual').value = produk.harga_jual;
+    document.getElementById('modalEdit').classList.remove('hidden');
+}
 </script>
 @endsection

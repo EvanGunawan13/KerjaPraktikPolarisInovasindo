@@ -6,17 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    protected $table = 'transaksi';
+    protected $table = 'transaksi'; // ← tambahkan baris ini!
+
     protected $fillable = [
-    'nomor_invoice', 
-    'nama_toko', 
-    'nomor_nota', 
-    'total_harga', 
-    'bayar', 
-    'kembalian', 
-    'tanggal_pembayaran', 
-    'user_id'
+    'nomor_invoice',
+    'produk_id',
+    'jumlah_jual', 
+    'nama_toko',
+    'nomor_nota',
+    'total_harga',
+    'bayar',
+    'kembalian',
+    'tanggal_pembayaran',
+    'user_id',
 ];
+
+public function produk()
+{
+    return $this->belongsTo(Produk::class, 'produk_id');
+}
 
     public function user() {
         return $this->belongsTo(User::class);

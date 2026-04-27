@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    protected $table = 'kategori'; // Paksa ke nama tabel bahasa Indonesia
+    protected $table = 'kategori';
     protected $fillable = ['nama_kategori', 'slug'];
 
     public function produk()
