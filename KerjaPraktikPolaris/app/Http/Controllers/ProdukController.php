@@ -27,7 +27,6 @@ class ProdukController extends Controller
         'harga_jual'  => 'required|numeric',
     ]);
 
-    // Menggunakan create agar semua field masuk
     Produk::create($request->all());
 
     return redirect()->back()->with('success', 'Barang Polaris berhasil masuk sistem!');

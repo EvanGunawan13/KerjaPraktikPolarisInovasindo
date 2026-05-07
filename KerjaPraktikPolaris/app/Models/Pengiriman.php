@@ -38,7 +38,6 @@ class Pengiriman extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Badge color helper
     public function statusColor(): string
     {
         return match($this->status) {

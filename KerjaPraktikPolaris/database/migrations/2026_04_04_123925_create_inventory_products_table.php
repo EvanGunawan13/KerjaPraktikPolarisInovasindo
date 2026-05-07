@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->id();
-            // Menghubungkan ke tabel 'kategori'
             $table->foreignId('kategori_id')->constrained('kategori')->onDelete('cascade');
             
             $table->string('sku')->unique();
@@ -31,7 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // PERBAIKAN: Nama tabel harus sama dengan yang ada di up()
+
         Schema::dropIfExists('produk');
     }
 };

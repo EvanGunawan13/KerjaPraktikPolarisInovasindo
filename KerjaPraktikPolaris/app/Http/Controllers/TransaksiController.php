@@ -101,9 +101,8 @@ public function destroy($id)
     try {
         $transaksi = Transaksi::findOrFail($id);
 
-        // ✅ Kembalikan stok hanya jika produk_id ada dan produknya ditemukan
         if ($transaksi->produk_id) {
-            $produk = \App\Models\Produk::find($transaksi->produk_id); // pakai find, bukan findOrFail
+            $produk = \App\Models\Produk::find($transaksi->produk_id);
             if ($produk && $transaksi->jumlah_jual > 0) {
                 $produk->increment('stok', $transaksi->jumlah_jual);
             }

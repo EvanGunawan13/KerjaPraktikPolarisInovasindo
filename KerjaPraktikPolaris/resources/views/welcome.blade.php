@@ -185,7 +185,6 @@
 {{-- Chart.js --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // ── Sales Line Chart ──────────────────────────────────────
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
         type: 'line',
@@ -220,7 +219,6 @@
         }
     });
 
-    // ── Category Doughnut Chart ───────────────────────────────
     const catCtx = document.getElementById('categoryChart').getContext('2d');
     new Chart(catCtx, {
         type: 'doughnut',

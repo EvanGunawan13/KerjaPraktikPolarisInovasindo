@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('penjualan', function (Blueprint $table) {
         $table->id();
         $table->string('nomor_invoice')->unique();
-        $table->foreignId('user_id')->nullable(); // Bisa dikosongkan jika belum ada sistem login
+        $table->foreignId('user_id')->nullable();
         $table->decimal('total_harga', 15, 2)->default(0);
         $table->decimal('bayar', 15, 2)->default(0);
         $table->decimal('kembalian', 15, 2)->default(0);

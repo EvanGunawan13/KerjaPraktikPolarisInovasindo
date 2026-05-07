@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaksi extends Model
 {
-    protected $table = 'transaksi'; // ← tambahkan baris ini!
+    protected $table = 'transaksi';
 
     protected $fillable = [
     'nomor_invoice',

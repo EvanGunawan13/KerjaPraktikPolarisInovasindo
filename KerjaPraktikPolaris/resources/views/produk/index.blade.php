@@ -117,8 +117,8 @@ function openEditModal(produk) {
     document.getElementById('edit_sku').value = produk.sku;
     document.getElementById('edit_kategori').value = produk.kategori_id;
     document.getElementById('edit_stok').value = produk.stok;
-    document.getElementById('edit_stok_minimum').value = produk.stok_minimum; // ✅ TAMBAH
-    document.getElementById('edit_harga_beli').value = produk.harga_beli;     // ✅ TAMBAH
+    document.getElementById('edit_stok_minimum').value = produk.stok_minimum;
+    document.getElementById('edit_harga_beli').value = produk.harga_beli;
     document.getElementById('edit_harga_jual').value = produk.harga_jual;
     document.getElementById('modalEdit').classList.remove('hidden');
 }
