@@ -15,27 +15,41 @@
             <p class="text-slate-500 text-xs uppercase">Inovasindo Furniture</p>
         </div>
 
-        <nav class="flex-1 px-4 space-y-2">
-    <a href="{{ route('dashboard') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-        <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
-        Dashboard
-    </a>
+        <nav class="flex-1 px-4 space-y-1">
+            <a href="{{ route('dashboard') }}"
+               class="flex items-center p-3 text-sm font-medium rounded-lg group transition
+               {{ Request::routeIs('dashboard') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>
+                Dashboard
+            </a>
 
-    <a href="{{ route('produk.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-        <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
-        Data Stok Barang
-    </a>
+            <a href="{{ route('produk.index') }}"
+               class="flex items-center p-3 text-sm font-medium rounded-lg group transition
+               {{ Request::routeIs('produk.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3 group-hover:text-blue-400"></i>
+                Data Stok Barang
+            </a>
 
-    <a href="{{ route('transaksi.index') }}" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group {{ Request::is('transaksi*') ? 'bg-slate-800 text-white' : '' }}">
-        <i class="fa-solid fa-calculator w-6 text-center mr-3 group-hover:text-green-400"></i>
-        Laporan Transaksi
-    </a>
+            <a href="{{ route('transaksi.index') }}"
+               class="flex items-center p-3 text-sm font-medium rounded-lg group transition
+               {{ Request::routeIs('transaksi.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                <i class="fa-solid fa-calculator w-6 text-center mr-3 group-hover:text-green-400"></i>
+                Laporan Transaksi
+            </a>
 
-    <a href="#" class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group">
-        <i class="fa-solid fa-users w-6 text-center mr-3"></i>
-        Manajemen User
-    </a>
-</nav>
+            <a href="{{ route('pengiriman.index') }}"
+               class="flex items-center p-3 text-sm font-medium rounded-lg group transition
+               {{ Request::routeIs('pengiriman.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                <i class="fa-solid fa-truck w-6 text-center mr-3 group-hover:text-amber-400"></i>
+                Status Pengiriman
+            </a>
+
+            <a href="#"
+               class="flex items-center p-3 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white rounded-lg group transition">
+                <i class="fa-solid fa-users w-6 text-center mr-3"></i>
+                Manajemen User
+            </a>
+        </nav>
     </aside>
 
     <div class="flex-1 flex flex-col overflow-hidden">
