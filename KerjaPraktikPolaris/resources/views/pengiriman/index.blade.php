@@ -21,7 +21,7 @@
         <div class="bg-red-500 text-white p-3 rounded-lg">{{ session('error') }}</div>
     @endif
 
-    {{-- Stat Cards --}}
+
     <div class="grid grid-cols-3 gap-4">
         <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 flex items-center gap-3">
             <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
@@ -52,7 +52,6 @@
         </div>
     </div>
 
-    {{-- Tabel Pengiriman --}}
     <div class="bg-white rounded-2xl shadow-sm border overflow-hidden">
         <table class="w-full text-left text-sm">
             <thead class="bg-slate-50 border-b">
@@ -117,7 +116,6 @@
     </div>
 </div>
 
-{{-- Modal Tambah Pengiriman --}}
 <div id="modalTambah" class="hidden fixed inset-0 bg-slate-900/50 flex items-center justify-center z-50 p-4">
     <div class="bg-white w-full max-w-lg rounded-2xl p-6 shadow-2xl">
         <h3 class="text-lg font-bold mb-4">Buat Pengiriman Baru</h3>
@@ -182,7 +180,6 @@
     </div>
 </div>
 
-{{-- Modal Update Status --}}
 <div id="modalEdit" class="hidden fixed inset-0 bg-slate-900/50 flex items-center justify-center z-50 p-4">
     <div class="bg-white w-full max-w-sm rounded-2xl p-6 shadow-2xl">
         <h3 class="text-lg font-bold mb-4">Update Status Pengiriman</h3>

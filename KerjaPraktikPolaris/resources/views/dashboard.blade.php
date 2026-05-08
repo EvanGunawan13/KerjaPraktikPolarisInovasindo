@@ -11,30 +11,34 @@
 
     <aside class="w-64 bg-slate-900 h-full flex flex-col">
 
-        {{-- Logo --}}
         <div class="p-6">
             <h1 class="text-blue-400 text-xl font-bold uppercase tracking-wider">Polaris</h1>
             <p class="text-slate-500 text-xs uppercase">Inovasindo Furniture</p>
         </div>
 
-        {{-- Nav --}}
         <nav class="flex-1 px-4 space-y-1">
 
-            {{-- Dashboard — semua role --}}
             <a href="{{ route('dashboard') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
                {{ Request::routeIs('dashboard') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>Dashboard
             </a>
 
-            {{-- Stok — semua role bisa lihat --}}
+
             <a href="{{ route('produk.index') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
                {{ Request::routeIs('produk.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3"></i>Data Stok Barang
             </a>
 
-            {{-- Transaksi — kepala & pembukuan saja --}}
+            @if(auth()->user()->isKepala() || auth()->user()->isGudang())
+            <a href="{{ route('kategori.index') }}"
+               class="flex items-center p-3 text-sm font-medium rounded-lg transition
+               {{ Request::routeIs('kategori.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+                <i class="fa-solid fa-tags w-6 text-center mr-3"></i>Manajemen Kategori
+            </a>
+            @endif
+
             @if(auth()->user()->isKepala() || auth()->user()->isPembukuan())
             <a href="{{ route('transaksi.index') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
@@ -43,14 +47,12 @@
             </a>
             @endif
 
-            {{-- Pengiriman — semua role --}}
             <a href="{{ route('pengiriman.index') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
                {{ Request::routeIs('pengiriman.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fa-solid fa-truck w-6 text-center mr-3"></i>Status Pengiriman
             </a>
 
-            {{-- Manajemen User — kepala cabang saja --}}
             @if(auth()->user()->isKepala())
             <a href="{{ route('users.index') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
@@ -61,7 +63,6 @@
 
         </nav>
 
-        {{-- User info + Logout --}}
         <div class="p-4 border-t border-slate-700">
             <div class="flex items-center gap-3 mb-3">
                 <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">

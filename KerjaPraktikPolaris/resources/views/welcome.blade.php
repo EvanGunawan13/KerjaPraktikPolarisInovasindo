@@ -3,12 +3,8 @@
 @section('content')
 <div class="p-6 space-y-6">
 
-    {{-- ══════════════════════════════════════════
-         STAT CARDS
-    ══════════════════════════════════════════ --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
 
-        {{-- Total Nilai Aset --}}
         <div class="bg-white rounded-2xl shadow-sm border p-5 flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
                 <i class="fa-solid fa-vault text-blue-600 text-xl"></i>
@@ -20,7 +16,6 @@
             </div>
         </div>
 
-        {{-- Transaksi Hari Ini --}}
         <div class="bg-white rounded-2xl shadow-sm border p-5 flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
                 <i class="fa-solid fa-receipt text-green-600 text-xl"></i>
@@ -32,7 +27,6 @@
             </div>
         </div>
 
-        {{-- Produk Hampir Habis --}}
         <div class="bg-white rounded-2xl shadow-sm border p-5 flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl {{ $produkHampirHabis > 0 ? 'bg-red-100' : 'bg-slate-100' }} flex items-center justify-center flex-shrink-0">
                 <i class="fa-solid fa-triangle-exclamation {{ $produkHampirHabis > 0 ? 'text-red-500' : 'text-slate-400' }} text-xl"></i>
@@ -44,7 +38,6 @@
             </div>
         </div>
 
-        {{-- Pengiriman Aktif --}}
         <div class="bg-white rounded-2xl shadow-sm border p-5 flex items-center gap-4">
             <div class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
                 <i class="fa-solid fa-truck text-amber-600 text-xl"></i>
@@ -58,12 +51,8 @@
 
     </div>
 
-    {{-- ══════════════════════════════════════════
-         CHARTS ROW
-    ══════════════════════════════════════════ --}}
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
-        {{-- Line Chart: Penjualan 7 Hari --}}
         <div class="xl:col-span-2 bg-white rounded-2xl shadow-sm border p-6">
             <div class="flex items-center justify-between mb-4">
                 <div>
@@ -75,7 +64,6 @@
             <canvas id="salesChart" height="100"></canvas>
         </div>
 
-        {{-- Doughnut Chart: Kategori --}}
         <div class="bg-white rounded-2xl shadow-sm border p-6">
             <div class="flex items-center justify-between mb-4">
                 <div>
@@ -89,12 +77,8 @@
 
     </div>
 
-    {{-- ══════════════════════════════════════════
-         WIDGETS ROW
-    ══════════════════════════════════════════ --}}
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
 
-        {{-- Restock Needed --}}
         <div class="bg-white rounded-2xl shadow-sm border p-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="font-bold text-slate-800 flex items-center gap-2">
@@ -120,7 +104,6 @@
             @endforelse
         </div>
 
-        {{-- Recent Pengiriman --}}
         <div class="bg-white rounded-2xl shadow-sm border p-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="font-bold text-slate-800 flex items-center gap-2">
@@ -153,7 +136,6 @@
             @endforelse
         </div>
 
-        {{-- Activity Feed --}}
         <div class="bg-white rounded-2xl shadow-sm border p-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="font-bold text-slate-800 flex items-center gap-2">
@@ -182,7 +164,6 @@
     </div>
 </div>
 
-{{-- Chart.js --}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const salesCtx = document.getElementById('salesChart').getContext('2d');

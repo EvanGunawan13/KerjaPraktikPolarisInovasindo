@@ -12,7 +12,6 @@
         <div class="bg-red-500 text-white p-3 rounded-lg mb-4">{{ session('error') }}</div>
     @endif
 
-    {{-- Form Tambah Transaksi --}}
     <div class="bg-white p-6 rounded-xl shadow border mb-6">
         <form action="{{ route('transaksi.store') }}" method="POST">
             @csrf
@@ -50,7 +49,6 @@
         </form>
     </div>
 
-    {{-- Tabel Riwayat Transaksi --}}
     <div class="bg-white rounded-xl shadow border overflow-hidden">
         <table class="w-full text-left">
             <thead class="bg-slate-50 border-b">

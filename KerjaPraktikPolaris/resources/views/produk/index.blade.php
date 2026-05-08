@@ -94,11 +94,9 @@
             </select>
             <div class="grid grid-cols-2 gap-4">
                 <input type="number" name="stok" id="edit_stok" class="border rounded p-2" placeholder="Stok" required>
-                {{-- ✅ TAMBAH INI --}}
                 <input type="number" name="stok_minimum" id="edit_stok_minimum" class="border rounded p-2" placeholder="Stok Min" required>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                {{-- ✅ TAMBAH INI --}}
                 <input type="number" name="harga_beli" id="edit_harga_beli" class="border rounded p-2" placeholder="Harga Beli" required>
                 <input type="number" name="harga_jual" id="edit_harga_jual" class="border rounded p-2" placeholder="Harga Jual" required>
             </div>

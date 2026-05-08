@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     protected $table = 'kategori';
-    protected $fillable = ['nama_kategori', 'slug'];
+
+    protected $fillable = [
+        'nama_kategori',
+        'slug',
+    ];
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'kategori_id');
+        return $this->hasMany(Produk::class);
     }
 }

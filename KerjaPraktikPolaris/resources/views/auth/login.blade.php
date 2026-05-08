@@ -11,13 +11,11 @@
 
     <div class="w-full max-w-md">
 
-        {{-- Logo --}}
         <div class="text-center mb-8">
             <h1 class="text-blue-400 text-3xl font-bold uppercase tracking-widest">POLARIS</h1>
             <p class="text-slate-500 text-sm uppercase tracking-wider mt-1">Inovasindo Furniture</p>
         </div>
 
-        {{-- Card --}}
         <div class="bg-slate-800 rounded-2xl p-8 shadow-2xl border border-slate-700">
 
             <h2 class="text-white text-xl font-bold mb-1">Selamat Datang</h2>
