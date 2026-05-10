@@ -6,8 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PengirimanController;
-use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LaporanController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -23,7 +23,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
-
     Route::middleware('role:kepala_cabang,gudang')->group(function () {
         Route::post('/produk', [ProdukController::class, 'store'])->name('produk.store');
         Route::put('/produk/{produk}', [ProdukController::class, 'update'])->name('produk.update');
@@ -39,13 +38,16 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/pengiriman', [PengirimanController::class, 'index'])->name('pengiriman.index');
+    Route::middleware('role:kepala_cabang,gudang')->group(function () {
+        Route::post('/pengiriman', [PengirimanController::class, 'store'])->name('pengiriman.store');
+        Route::put('/pengiriman/{pengiriman}', [PengirimanController::class, 'update'])->name('pengiriman.update');
+        Route::delete('/pengiriman/{pengiriman}', [PengirimanController::class, 'destroy'])->name('pengiriman.destroy');
+    });
 
-Route::middleware('role:kepala_cabang,gudang')->group(function () {
-    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
-    Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
-    Route::put('/kategori/{kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-    Route::delete('/kategori/{kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-});
+    Route::middleware('role:kepala_cabang,pembukuan')->group(function () {
+        Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+        Route::get('/laporan/export-pdf', [LaporanController::class, 'exportPdf'])->name('laporan.exportPdf');
+    });
 
     Route::middleware('role:kepala_cabang')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');

@@ -9,7 +9,6 @@ class AuthController extends Controller
 {
     public function showLogin()
     {
-        // Redirect ke dashboard kalau sudah login
         if (Auth::check()) {
             return redirect()->route('dashboard');
         }

@@ -24,20 +24,11 @@
                 <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>Dashboard
             </a>
 
-
             <a href="{{ route('produk.index') }}"
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
                {{ Request::routeIs('produk.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3"></i>Data Stok Barang
             </a>
-
-            @if(auth()->user()->isKepala() || auth()->user()->isGudang())
-            <a href="{{ route('kategori.index') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('kategori.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-tags w-6 text-center mr-3"></i>Manajemen Kategori
-            </a>
-            @endif
 
             @if(auth()->user()->isKepala() || auth()->user()->isPembukuan())
             <a href="{{ route('transaksi.index') }}"
@@ -51,7 +42,15 @@
                class="flex items-center p-3 text-sm font-medium rounded-lg transition
                {{ Request::routeIs('pengiriman.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
                 <i class="fa-solid fa-truck w-6 text-center mr-3"></i>Status Pengiriman
+            
             </a>
+            @if(auth()->user()->isKepala() || auth()->user()->isPembukuan())
+            <a href="{{ route('laporan.index') }}"
+            class="flex items-center p-3 text-sm font-medium rounded-lg transition
+            {{ Request::routeIs('laporan.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
+            <i class="fa-solid fa-file-invoice w-6 text-center mr-3"></i>Rekap Laporan
+            </a>
+            @endif
 
             @if(auth()->user()->isKepala())
             <a href="{{ route('users.index') }}"

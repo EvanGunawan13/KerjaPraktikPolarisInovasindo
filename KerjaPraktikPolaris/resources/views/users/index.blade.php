@@ -82,7 +82,6 @@
     </div>
 </div>
 
-{{-- Modal Tambah User --}}
 <div id="modalTambah" class="hidden fixed inset-0 bg-slate-900/50 flex items-center justify-center z-50 p-4">
     <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl">
         <h3 class="text-lg font-bold mb-4">Tambah User Baru</h3>
@@ -124,7 +123,6 @@
     </div>
 </div>
 
-{{-- Modal Edit User --}}
 <div id="modalEdit" class="hidden fixed inset-0 bg-slate-900/50 flex items-center justify-center z-50 p-4">
     <div class="bg-white w-full max-w-md rounded-2xl p-6 shadow-2xl">
         <h3 class="text-lg font-bold mb-4">Edit User</h3>

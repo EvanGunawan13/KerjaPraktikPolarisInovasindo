@@ -54,7 +54,6 @@ class UserController extends Controller
             'role'  => $request->role,
         ];
 
-        // Hanya update password kalau diisi
         if ($request->filled('password')) {
             $request->validate(['password' => 'min:6|confirmed']);
             $data['password'] = Hash::make($request->password);
