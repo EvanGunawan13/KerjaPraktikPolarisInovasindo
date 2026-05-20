@@ -58,12 +58,7 @@
             @csrf
             <input type="text" name="nama_produk" class="w-full border rounded p-2" placeholder="Nama Produk" required>
             <input type="text" name="sku" class="w-full border rounded p-2" placeholder="SKU (Contoh: KRS-001)" required>
-            <select name="kategori_id" class="w-full border rounded p-2" required>
-                <option value="">-- Pilih Kategori --</option>
-                @foreach($kategori as $kat)
-                    <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
-                @endforeach
-            </select>
+            <input type="text" name="nama_kategori" class="w-full border rounded p-2" placeholder="Nama Kategori (Baru/Existing)" required>
             <div class="grid grid-cols-2 gap-4">
                 <input type="number" name="stok" class="border rounded p-2" placeholder="Stok" required>
                 <input type="number" name="stok_minimum" class="border rounded p-2" placeholder="Stok Min" required>
@@ -87,11 +82,7 @@
             @csrf @method('PUT')
             <input type="text" name="nama_produk" id="edit_nama" class="w-full border rounded p-2" placeholder="Nama Produk" required>
             <input type="text" name="sku" id="edit_sku" class="w-full border rounded p-2" placeholder="SKU" required>
-            <select name="kategori_id" id="edit_kategori" class="w-full border rounded p-2" required>
-                @foreach($kategori as $kat)
-                    <option value="{{ $kat->id }}">{{ $kat->nama_kategori }}</option>
-                @endforeach
-            </select>
+            <input type="text" name="nama_kategori" id="edit_nama_kategori" class="w-full border rounded p-2" placeholder="Nama Kategori" required>
             <div class="grid grid-cols-2 gap-4">
                 <input type="number" name="stok" id="edit_stok" class="border rounded p-2" placeholder="Stok" required>
                 <input type="number" name="stok_minimum" id="edit_stok_minimum" class="border rounded p-2" placeholder="Stok Min" required>
@@ -113,7 +104,7 @@ function openEditModal(produk) {
     document.getElementById('formEdit').action = '/produk/' + produk.id;
     document.getElementById('edit_nama').value = produk.nama_produk;
     document.getElementById('edit_sku').value = produk.sku;
-    document.getElementById('edit_kategori').value = produk.kategori_id;
+    document.getElementById('edit_nama_kategori').value = produk.kategori.nama_kategori;
     document.getElementById('edit_stok').value = produk.stok;
     document.getElementById('edit_stok_minimum').value = produk.stok_minimum;
     document.getElementById('edit_harga_beli').value = produk.harga_beli;
