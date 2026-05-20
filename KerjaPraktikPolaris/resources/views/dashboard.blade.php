@@ -3,99 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polaris Inovasindo - Manajemen Stok</title>
+    <title>Login — Polaris Inovasindo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #0f2d6b 0%, #1a47a8 50%, #2563eb 100%);
+            min-height: 100vh;
+        }
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 24px 64px rgba(15,45,107,0.22);
+        }
+        .input-field {
+            width: 100%; border: 1.5px solid #e2e8f0; border-radius: 10px;
+            padding: 10px 14px 10px 38px; font-size: 14px; color: #1e293b;
+            transition: border-color 0.15s; outline: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .input-field:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .btn-login {
+            width: 100%; background: linear-gradient(135deg, #1a47a8, #2563eb);
+            color: #fff; border: none; border-radius: 10px; padding: 11px;
+            font-size: 14px; font-weight: 700; cursor: pointer;
+            transition: opacity 0.15s, transform 0.1s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .btn-login:hover { opacity: 0.92; transform: translateY(-1px); }
+        .btn-login:active { transform: translateY(0); }
+        .bg-pattern {
+            position: fixed; inset: 0; overflow: hidden; pointer-events: none;
+        }
+        .bg-circle {
+            position: absolute; border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+    </style>
 </head>
-<body class="bg-slate-100 flex h-screen overflow-hidden">
+<body class="flex items-center justify-center p-4">
 
-    <aside class="w-64 bg-slate-900 h-full flex flex-col">
+    {{-- Background decorations --}}
+    <div class="bg-pattern">
+        <div class="bg-circle" style="width:400px;height:400px;top:-100px;right:-100px;"></div>
+        <div class="bg-circle" style="width:300px;height:300px;bottom:-80px;left:-80px;"></div>
+        <div class="bg-circle" style="width:200px;height:200px;top:50%;left:10%;"></div>
+    </div>
 
-        <div class="p-6">
-            <h1 class="text-blue-400 text-xl font-bold uppercase tracking-wider">Polaris</h1>
-            <p class="text-slate-500 text-xs uppercase">Inovasindo Furniture</p>
+    <div class="w-full max-w-sm relative z-10">
+
+        {{-- Logo --}}
+        <div class="text-center mb-7">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-3"
+                 style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);">
+                <i class="fa-solid fa-star text-white text-2xl"></i>
+            </div>
+            <h1 class="text-white text-2xl font-800 tracking-wide">POLARIS</h1>
+            <p class="text-white/50 text-xs mt-1 uppercase tracking-widest">Inovasindo Furniture</p>
         </div>
 
-        <nav class="flex-1 px-4 space-y-1">
+        {{-- Card --}}
+        <div class="card p-7">
+            <h2 class="text-slate-800 text-lg font-700 mb-0.5">Selamat Datang 👋</h2>
+            <p class="text-slate-400 text-sm mb-5">Masuk ke sistem inventaris Polaris</p>
 
-            <a href="{{ route('dashboard') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('dashboard') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-gauge-high w-6 text-center mr-3"></i>Dashboard
-            </a>
-
-            <a href="{{ route('produk.index') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('produk.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-boxes-stacked w-6 text-center mr-3"></i>Data Stok Barang
-            </a>
-
-            @if(auth()->user()->isKepala() || auth()->user()->isPembukuan())
-            <a href="{{ route('transaksi.index') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('transaksi.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-calculator w-6 text-center mr-3"></i>Laporan Transaksi
-            </a>
-            @endif
-
-            <a href="{{ route('pengiriman.index') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('pengiriman.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-truck w-6 text-center mr-3"></i>Status Pengiriman
-            
-            </a>
-            @if(auth()->user()->isKepala() || auth()->user()->isPembukuan())
-            <a href="{{ route('laporan.index') }}"
-            class="flex items-center p-3 text-sm font-medium rounded-lg transition
-            {{ Request::routeIs('laporan.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-            <i class="fa-solid fa-file-invoice w-6 text-center mr-3"></i>Rekap Laporan
-            </a>
-            @endif
-
-            @if(auth()->user()->isKepala())
-            <a href="{{ route('users.index') }}"
-               class="flex items-center p-3 text-sm font-medium rounded-lg transition
-               {{ Request::routeIs('users.*') ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-800 hover:text-white' }}">
-                <i class="fa-solid fa-users w-6 text-center mr-3"></i>Manajemen User
-            </a>
-            @endif
-
-        </nav>
-
-        <div class="p-4 border-t border-slate-700">
-            <div class="flex items-center gap-3 mb-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
-                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+            @if(session('success'))
+                <div class="bg-green-50 border border-green-200 text-green-700 p-3 rounded-lg mb-4 text-sm">
+                    <i class="fa-solid fa-circle-check mr-1.5"></i>{{ session('success') }}
                 </div>
-                <div class="overflow-hidden">
-                    <p class="text-white text-sm font-medium truncate">{{ auth()->user()->name }}</p>
-                    <p class="text-slate-400 text-xs truncate">{{ auth()->user()->role_label }}</p>
+            @endif
+
+            @if($errors->any())
+                <div class="bg-red-50 border border-red-200 text-red-600 p-3 rounded-lg mb-4 text-sm">
+                    <i class="fa-solid fa-circle-exclamation mr-1.5"></i>{{ $errors->first() }}
                 </div>
-            </div>
-            <form action="{{ route('logout') }}" method="POST">
+            @endif
+
+            <form action="{{ route('login.post') }}" method="POST" class="space-y-4">
                 @csrf
-                <button type="submit"
-                    class="w-full flex items-center justify-center gap-2 text-slate-400 hover:text-white hover:bg-slate-800 p-2 rounded-lg text-sm transition">
-                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+
+                <div>
+                    <label class="block text-xs font-600 text-slate-600 mb-1.5">Email</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="email" name="email" value="{{ old('email') }}"
+                            class="input-field" placeholder="email@polaris.com" required autofocus>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-600 text-slate-600 mb-1.5">Password</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="password" name="password" id="passwordInput"
+                            class="input-field" style="padding-right:38px;" placeholder="••••••••" required>
+                        <button type="button" onclick="togglePassword()"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                            <i class="fa-solid fa-eye text-sm" id="eyeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" name="remember" id="remember"
+                        class="w-4 h-4 rounded border-slate-300 text-blue-600 accent-blue-600">
+                    <label for="remember" class="text-sm text-slate-500 cursor-pointer select-none">Ingat saya</label>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>Masuk ke Sistem
                 </button>
             </form>
         </div>
 
-    </aside>
-
-    <div class="flex-1 flex flex-col overflow-hidden">
-        <header class="bg-white shadow-sm p-4 border-b flex items-center justify-between">
-            <span class="text-slate-600 font-medium">Sistem Inventaris v1.0</span>
-            <span class="text-xs text-slate-400">
-                <i class="fa-solid fa-circle text-green-400 mr-1"></i>
-                {{ auth()->user()->name }} — {{ auth()->user()->role_label }}
-            </span>
-        </header>
-
-        <main class="flex-1 overflow-y-auto bg-slate-50">
-            @yield('content')
-        </main>
+        <p class="text-center text-white/30 text-xs mt-5">
+            Sistem Inventaris v1.0 &copy; {{ date('Y') }} Polaris Inovasindo
+        </p>
     </div>
 
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('passwordInput');
+            const icon  = document.getElementById('eyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>
