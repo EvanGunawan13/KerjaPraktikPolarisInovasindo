@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — Polaris Inovasindo</title>
+    <title>Login — InvPolar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,8 +60,8 @@
                  style="background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);">
                 <i class="fa-solid fa-star text-white text-2xl"></i>
             </div>
-            <h1 class="text-white text-2xl font-800 tracking-wide">POLARIS</h1>
-            <p class="text-white/50 text-xs mt-1 uppercase tracking-widest">Inovasindo Furniture</p>
+            <h1 class="text-blue-400 text-3xl font-bold uppercase tracking-widest">INVPOLAR</h1>
+<p class="text-slate-500 text-sm uppercase tracking-wider mt-1">Sistem Inventaris</p>
         </div>
 
         {{-- Card --}}
@@ -89,7 +89,7 @@
                     <div class="relative">
                         <i class="fa-solid fa-envelope absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="input-field" placeholder="email@polaris.com" required autofocus>
+                            class="input-field" placeholder="email@gmail.com" required autofocus>
                     </div>
                 </div>
 
