@@ -98,9 +98,9 @@
                     <div style="width:30px;height:30px;background:rgba(255,255,255,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;">
                         <i class="fa-solid fa-star text-white text-sm"></i>
                     </div>
-                    <span style="color:#fff;font-size:17px;font-weight:800;letter-spacing:0.04em;">POLARIS</span>
+                    <span style="color:#fff;font-size:17px;font-weight:800;letter-spacing:0.04em;">InvPolar</span>
                 </div>
-                <p style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:2px;padding-left:38px;">Inovasindo Furniture</p>
+                <p style="color:rgba(255,255,255,0.45);font-size:10px;margin-top:2px;padding-left:38px;">Sistem Inventaris</p>
             </div>
             {{-- Close button (mobile only) --}}
             <button onclick="closeSidebar()" class="lg:hidden text-white/50 hover:text-white p-1">
