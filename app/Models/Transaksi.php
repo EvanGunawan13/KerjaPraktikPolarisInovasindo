@@ -11,12 +11,12 @@ class Transaksi extends Model
     protected $fillable = [
     'nomor_invoice',
     'produk_id',
-    'jumlah_jual', 
+    'jumlah_jual',
     'nama_toko',
     'nomor_nota',
     'total_harga',
     'bayar',
-    'kembalian',
+    'dp',
     'tanggal_pembayaran',
     'user_id',
 ];

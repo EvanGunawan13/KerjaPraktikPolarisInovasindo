@@ -59,7 +59,7 @@
                     <th class="p-4 text-center">Jml</th>
                     <th class="p-4 text-right">Total</th>
                     <th class="p-4 text-right">Bayar</th>
-                    <th class="p-4 text-right">Kembalian</th>
+                    <th class="p-4 text-right">DP</th>
                     <th class="p-4 text-center">Tanggal</th>
                     <th class="p-4 text-center">Aksi</th>
                 </tr>
@@ -73,7 +73,7 @@
                     <td class="p-4 text-center">{{ $t->jumlah_jual }}</td>
                     <td class="p-4 text-right">Rp {{ number_format($t->total_harga, 0, ',', '.') }}</td>
                     <td class="p-4 text-right">Rp {{ number_format($t->bayar, 0, ',', '.') }}</td>
-                    <td class="p-4 text-right">Rp {{ number_format($t->kembalian, 0, ',', '.') }}</td>
+                    <td class="p-4 text-right">Rp {{ number_format($t->dp, 0, ',', '.') }}</td>
                     <td class="p-4 text-center text-sm">{{ $t->tanggal_pembayaran }}</td>
                     <td class="p-4 text-center">
                         <div class="flex items-center justify-center gap-2">
